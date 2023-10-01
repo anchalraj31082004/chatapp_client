@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import Register from "./Register";
 import { useNavigate } from "react-router-dom";
+import Register from "./Authentication/Register";
 
 const Home = () => {
 

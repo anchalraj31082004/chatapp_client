@@ -10,7 +10,6 @@ import SideDrawer from "./SideDrawer";
 const Navbar = () => {
   const [isHidden, setIsHidden] = useState(true);
   const [isSideDrawerOpen, setSideDrawerOpen] = useState(false);
-  // const [isProfileHidden, setIsProfileHidden] = useState(true)
   const [isProfileOpen, setIsProfileOpen] = useState(false);
 
   const { user } = useContext(ChatContext);

@@ -79,7 +79,6 @@ const SideDrawer = ({ isOpen, onClose }) => {
 
       //if chat already exist append it to this chat
       if (!chats.find((c) => c._id === data._id)) setChats([data, ...chats]);
-
       setSelectedChat(data);
       setLoadingChat(false);
       onClose();
@@ -101,12 +100,12 @@ const SideDrawer = ({ isOpen, onClose }) => {
     <div
       className={`fixed h-full w-72 bg-gray-800 text-white p-4 ${
         isOpen ? "translate-x-0" : "-translate-x-full"
-      } transition-transform  duration-300 ease-in-out border-r-4 overflow-auto border-amber-500`}
+      } transition-transform  duration-300 ease-in-out border-r-4 border-amber-500`}
     >
       <button className="text-white" onClick={onClose}>
         <VscClose className="text-2xl hover:text-amber-500 font-bold active:text-sky-600 text-white" />
       </button>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 h-full">
         <h3 className="text-xl font-bold">Search User</h3>
         <div className="flex items-center gap-4">
           <input
@@ -122,7 +121,7 @@ const SideDrawer = ({ isOpen, onClose }) => {
             Go
           </button>
         </div>
-        <div className=" min-h-full">
+        <div className="flex flex-col overflow-auto scroll-smooth">
           {loading ? (
             <ChatLoading />
           ) : (
@@ -138,11 +137,13 @@ const SideDrawer = ({ isOpen, onClose }) => {
           )}
         </div>
       </div>
+
       {loadingChat && (
-        <div className="h-36">
-          <img src="/loader.gif" />
+        <div className="flex items-center justify-center my-5">
+          <img className="h-20 p-2 rounded-full shadow-xl shadow-amber-500"  src="/loader.gif" />
         </div>
       )}
+
       <ToastContainer />
     </div>
   );

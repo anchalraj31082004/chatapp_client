@@ -1,13 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { VscClose } from "react-icons/vsc";
 import { ChatContext } from "../context/ChatContext";
+import {AiFillEye} from "react-icons/ai"
 
-const ProfileView = ({ isOpen, onClose }) => {
+const ProfileView = ({ isOpen, onClose, currentUser }) => {
+ 
   const { user } = useContext(ChatContext);
   // console.log(user);
+  // console.log(currentUser);
+  
 
   return (
-    <section
+    <>
+     <section
       className={ ` fixed inset-0 flex items-center justify-center ${isOpen? "block" : "hidden"} `
       }
     >
@@ -32,6 +37,8 @@ const ProfileView = ({ isOpen, onClose }) => {
         </div>
       </div>
     </section>
+    </>
+   
   );
 };
 
